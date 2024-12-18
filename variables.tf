@@ -20,17 +20,17 @@ default = "t3a.large"
   variable "min_size" {
     description = "Min number of nodes"
 type = number
-default = 2
+default = 1
   }
 
   variable "max_size" {
     description = "Max number of nodes"
 type = number
-default = 6
+default = 5
   }
 
   variable "desired_size" {
     description = "Desired number of nodes"
 type = number
-default = 4
+default = 3
   }
