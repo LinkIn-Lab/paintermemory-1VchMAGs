@@ -14,7 +14,7 @@ default = "paintermemory"
   variable "instance_type" {
     description = "Instance Type"
 type = string
-default = "t3a.large"
+default = "t3a.xlarge"
   }
 
   variable "min_size" {
