@@ -36,11 +36,6 @@ output "min_nodes" {
   value       = local.min_size
 }
 
-output "max_nodes" {
-  description = "Max number of nodes"
-  value       = local.max_size
-}
-
 output "desired_nodes" {
   description = "Desired number of nodes"
   value       = local.desired_size
