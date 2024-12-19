@@ -41,11 +41,6 @@ output "desired_nodes" {
   value       = local.desired_size
 }
 
-output "k8s_version" {
-  description = "Kubernetes version"
-  value       = module.eks.cluster_version
-}
-
 output "aws_account_id" {
   description = "AWS Account ID"
   value       = data.aws_caller_identity.current.account_id
