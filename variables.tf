@@ -8,7 +8,7 @@ default = "eu-central-1"
   variable "cluster_name" {
     description = "Cluster Name"
 type = string
-default = "paintermemory"
+default = "paintermemorylsp"
   }
 
   variable "instance_type" {
