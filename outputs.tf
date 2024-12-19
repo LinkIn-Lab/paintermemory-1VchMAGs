@@ -56,11 +56,6 @@ output "cidr_range" {
   value       = module.vpc.vpc_cidr_block
 }
 
-output "subnet_ids" {
-  description = "Subnet IDs"
-  value       = module.vpc.private_subnets
-}
-
 output "cluster_ingress_endpoint" {
   description = "Ingress endpoint for EKS cluster"
   value       = try(module.eks.cluster_endpoint)
