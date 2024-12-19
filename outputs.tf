@@ -51,11 +51,6 @@ output "k8s_version" {
   value       = module.eks.cluster_version
 }
 
-output "cidr_range" {
-  description = "CIDR Range"
-  value       = module.vpc.vpc_cidr_block
-}
-
 output "aws_account_id" {
   description = "AWS Account ID"
   value       = data.aws_caller_identity.current.account_id
