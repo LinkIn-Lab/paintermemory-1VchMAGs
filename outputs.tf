@@ -56,11 +56,6 @@ output "cidr_range" {
   value       = module.vpc.vpc_cidr_block
 }
 
-output "aws_account_id" {
-  description = "AWS Account ID"
-  value       = data.aws_caller_identity.current.account_id
-}
-
 output "subnet_ids" {
   description = "Subnet IDs"
   value       = module.vpc.private_subnets
