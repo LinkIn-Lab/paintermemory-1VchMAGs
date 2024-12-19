@@ -61,11 +61,6 @@ output "aws_account_id" {
   value       = data.aws_caller_identity.current.account_id
 }
 
-output "subnet_ids" {
-  description = "Subnet IDs"
-  value       = module.vpc.private_subnets
-}
-
 output "cluster_ingress_endpoint" {
   description = "Ingress endpoint for EKS cluster"
   value       = try(module.eks.cluster_endpoint)
