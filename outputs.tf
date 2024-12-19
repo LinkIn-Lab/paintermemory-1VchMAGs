@@ -51,11 +51,6 @@ output "k8s_version" {
   value       = module.eks.cluster_version
 }
 
-output "cidr_range" {
-  description = "CIDR Range"
-  value       = module.vpc.vpc_cidr_block
-}
-
 output "cluster_ingress_endpoint" {
   description = "Ingress endpoint for EKS cluster"
   value       = try(module.eks.cluster_endpoint)
