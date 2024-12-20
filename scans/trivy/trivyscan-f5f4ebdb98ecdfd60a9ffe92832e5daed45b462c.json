@@ -1,6 +1,6 @@
 {
   "SchemaVersion": 2,
-  "CreatedAt": "2024-12-20T13:20:50.88691855Z",
+  "CreatedAt": "2024-12-20T13:30:58.77155447Z",
   "ArtifactName": "main.tf",
   "ArtifactType": "filesystem",
   "Metadata": {
@@ -714,6 +714,102 @@
             },
             "Occurrences": [
               {
+                "Resource": "aws_subnet.public[0]",
+                "Filename": "terraform-aws-modules/vpc/aws/main.tf",
+                "Location": {
+                  "StartLine": 359,
+                  "EndLine": 382
+                }
+              },
+              {
+                "Resource": "module.vpc",
+                "Filename": "main.tf",
+                "Location": {
+                  "StartLine": 44,
+                  "EndLine": 71
+                }
+              }
+            ]
+          }
+        },
+        {
+          "Type": "Terraform Security Check",
+          "ID": "aws-vpc-no-public-ingress-sgr",
+          "AVDID": "AVD-AWS-0164",
+          "Title": "Instances in a subnet should not receive a public IP address by default.",
+          "Description": "You should limit the provision of public IP addresses for resources. Resources should not be exposed on the public internet, but should have access limited to consumers required for the function of your application.\n",
+          "Message": "Subnet associates public IP address.",
+          "Namespace": "builtin.aws.ec2.aws0164",
+          "Query": "data.builtin.aws.ec2.aws0164.deny",
+          "Resolution": "Set the instance to not be publicly accessible",
+          "Severity": "HIGH",
+          "PrimaryURL": "https://avd.aquasec.com/misconfig/aws-vpc-no-public-ingress-sgr",
+          "References": [
+            "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses",
+            "https://avd.aquasec.com/misconfig/aws-vpc-no-public-ingress-sgr"
+          ],
+          "Status": "FAIL",
+          "Layer": {},
+          "CauseMetadata": {
+            "Resource": "module.vpc",
+            "Provider": "AWS",
+            "Service": "ec2",
+            "StartLine": 366,
+            "EndLine": 366,
+            "Code": {
+              "Lines": [
+                {
+                  "Number": 359,
+                  "Content": "resource \"aws_subnet\" \"public\" {",
+                  "IsCause": false,
+                  "Annotation": "",
+                  "Truncated": false,
+                  "Highlighted": "\u001b[38;5;33mresource\u001b[0m \u001b[38;5;37m\"aws_subnet\"\u001b[0m \u001b[38;5;37m\"public\"\u001b[0m {",
+                  "FirstCause": false,
+                  "LastCause": false
+                },
+                {
+                  "Number": 360,
+                  "Content": "",
+                  "IsCause": false,
+                  "Annotation": "",
+                  "Truncated": true,
+                  "FirstCause": false,
+                  "LastCause": false
+                },
+                {
+                  "Number": 366,
+                  "Content": "  map_public_ip_on_launch         = var.map_public_ip_on_launch",
+                  "IsCause": true,
+                  "Annotation": "",
+                  "Truncated": false,
+                  "Highlighted": "  \u001b[38;5;245mmap_public_ip_on_launch\u001b[0m         = \u001b[38;5;33mvar\u001b[0m.map_public_ip_on_launch",
+                  "FirstCause": true,
+                  "LastCause": true
+                },
+                {
+                  "Number": 381,
+                  "Content": "",
+                  "IsCause": false,
+                  "Annotation": "",
+                  "Truncated": true,
+                  "FirstCause": false,
+                  "LastCause": false
+                },
+                {
+                  "Number": 382,
+                  "Content": "}",
+                  "IsCause": false,
+                  "Annotation": "",
+                  "Truncated": false,
+                  "Highlighted": "}",
+                  "FirstCause": false,
+                  "LastCause": false
+                }
+              ]
+            },
+            "Occurrences": [
+              {
                 "Resource": "aws_subnet.public[2]",
                 "Filename": "terraform-aws-modules/vpc/aws/main.tf",
                 "Location": {
@@ -811,102 +907,6 @@
             "Occurrences": [
               {
                 "Resource": "aws_subnet.public[1]",
-                "Filename": "terraform-aws-modules/vpc/aws/main.tf",
-                "Location": {
-                  "StartLine": 359,
-                  "EndLine": 382
-                }
-              },
-              {
-                "Resource": "module.vpc",
-                "Filename": "main.tf",
-                "Location": {
-                  "StartLine": 44,
-                  "EndLine": 71
-                }
-              }
-            ]
-          }
-        },
-        {
-          "Type": "Terraform Security Check",
-          "ID": "aws-vpc-no-public-ingress-sgr",
-          "AVDID": "AVD-AWS-0164",
-          "Title": "Instances in a subnet should not receive a public IP address by default.",
-          "Description": "You should limit the provision of public IP addresses for resources. Resources should not be exposed on the public internet, but should have access limited to consumers required for the function of your application.\n",
-          "Message": "Subnet associates public IP address.",
-          "Namespace": "builtin.aws.ec2.aws0164",
-          "Query": "data.builtin.aws.ec2.aws0164.deny",
-          "Resolution": "Set the instance to not be publicly accessible",
-          "Severity": "HIGH",
-          "PrimaryURL": "https://avd.aquasec.com/misconfig/aws-vpc-no-public-ingress-sgr",
-          "References": [
-            "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses",
-            "https://avd.aquasec.com/misconfig/aws-vpc-no-public-ingress-sgr"
-          ],
-          "Status": "FAIL",
-          "Layer": {},
-          "CauseMetadata": {
-            "Resource": "module.vpc",
-            "Provider": "AWS",
-            "Service": "ec2",
-            "StartLine": 366,
-            "EndLine": 366,
-            "Code": {
-              "Lines": [
-                {
-                  "Number": 359,
-                  "Content": "resource \"aws_subnet\" \"public\" {",
-                  "IsCause": false,
-                  "Annotation": "",
-                  "Truncated": false,
-                  "Highlighted": "\u001b[38;5;33mresource\u001b[0m \u001b[38;5;37m\"aws_subnet\"\u001b[0m \u001b[38;5;37m\"public\"\u001b[0m {",
-                  "FirstCause": false,
-                  "LastCause": false
-                },
-                {
-                  "Number": 360,
-                  "Content": "",
-                  "IsCause": false,
-                  "Annotation": "",
-                  "Truncated": true,
-                  "FirstCause": false,
-                  "LastCause": false
-                },
-                {
-                  "Number": 366,
-                  "Content": "  map_public_ip_on_launch         = var.map_public_ip_on_launch",
-                  "IsCause": true,
-                  "Annotation": "",
-                  "Truncated": false,
-                  "Highlighted": "  \u001b[38;5;245mmap_public_ip_on_launch\u001b[0m         = \u001b[38;5;33mvar\u001b[0m.map_public_ip_on_launch",
-                  "FirstCause": true,
-                  "LastCause": true
-                },
-                {
-                  "Number": 381,
-                  "Content": "",
-                  "IsCause": false,
-                  "Annotation": "",
-                  "Truncated": true,
-                  "FirstCause": false,
-                  "LastCause": false
-                },
-                {
-                  "Number": 382,
-                  "Content": "}",
-                  "IsCause": false,
-                  "Annotation": "",
-                  "Truncated": false,
-                  "Highlighted": "}",
-                  "FirstCause": false,
-                  "LastCause": false
-                }
-              ]
-            },
-            "Occurrences": [
-              {
-                "Resource": "aws_subnet.public[0]",
                 "Filename": "terraform-aws-modules/vpc/aws/main.tf",
                 "Location": {
                   "StartLine": 359,
