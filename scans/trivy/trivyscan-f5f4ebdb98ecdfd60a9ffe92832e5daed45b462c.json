@@ -1,6 +1,6 @@
 {
   "SchemaVersion": 2,
-  "CreatedAt": "2024-12-20T13:03:36.701239053Z",
+  "CreatedAt": "2024-12-20T13:20:50.88691855Z",
   "ArtifactName": "main.tf",
   "ArtifactType": "filesystem",
   "Metadata": {
@@ -714,7 +714,7 @@
             },
             "Occurrences": [
               {
-                "Resource": "aws_subnet.public[1]",
+                "Resource": "aws_subnet.public[2]",
                 "Filename": "terraform-aws-modules/vpc/aws/main.tf",
                 "Location": {
                   "StartLine": 359,
@@ -810,7 +810,7 @@
             },
             "Occurrences": [
               {
-                "Resource": "aws_subnet.public[2]",
+                "Resource": "aws_subnet.public[1]",
                 "Filename": "terraform-aws-modules/vpc/aws/main.tf",
                 "Location": {
                   "StartLine": 359,
