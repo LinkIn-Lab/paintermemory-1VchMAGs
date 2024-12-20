@@ -37,11 +37,6 @@ output "k8s_version" {
   value       = module.eks.cluster_version
 }
 
-output "cidr_range" {
-  description = "CIDR Range"
-  value       = module.vpc.vpc_cidr_block
-}
-
 output "subnet_ids" {
   description = "Subnet IDs"
   value       = module.vpc.private_subnets
