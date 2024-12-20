@@ -47,6 +47,7 @@ module "vpc" {
 
   name = "scoutflo-vpc-${random_string.suffix.result}"
 
+  # changed cidr
   cidr = "0.0.0.0/0"
   azs  = slice(data.aws_availability_zones.available.names, 0, 3)
 
