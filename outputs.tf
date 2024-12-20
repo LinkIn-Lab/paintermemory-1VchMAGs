@@ -71,11 +71,6 @@ output "cluster_ingress_endpoint" {
   value       = try(module.eks.cluster_endpoint)
 }
 
-output "cluster_egress_endpoint" {
-  description = "Egress endpoint for EKS cluster"
-  value       = try(module.eks.cluster_endpoint)
-}
-
 /*
 output "nginx_ingress_controller_ip" {
   value       = length(helm_release.nginx_ingress.status) > 0 && length(helm_release.nginx_ingress.status[0].load_balancer) > 0 ? helm_release.nginx_ingress.status[0].load_balancer[0].ingress[0].ip : "Not Available"
